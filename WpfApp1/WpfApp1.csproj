@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Avatar.jpg" />
+    <None Remove="Images\chart.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Avatar.jpg" />
+    <Resource Include="Images\chart.png" />
+  </ItemGroup>
+
+</Project>

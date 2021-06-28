@@ -1,0 +1,180 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow" Width="1200" Height="900 " FontSize="16"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="MeunButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="5,0,5,0" />
+        </Style>
+        <Style x:Key="NavigationItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Height" Value="70" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+        <DropShadowEffect x:Key="Effect" BlurRadius="10" Opacity="0.3" />
+    </Window.Resources>
+    <DockPanel Background="#f7f7f7">
+
+        <!--#region 菜单栏-->
+        <Border Background="#7670d9" DockPanel.Dock="Top"
+                Effect="{StaticResource Effect}">
+            <Grid Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="320" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--#region 标题-->
+                <TextBlock Text="WPF学习" Margin="44,0,0,0" VerticalAlignment="Center"
+                           FontSize="28" Foreground="White" />
+                <!--#endregion-->
+
+                <!--#region 用户信息-->
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Image Width="64" Height="64" Source="Images/Avatar.jpg"
+                           Stretch="Uniform">
+                        <Image.Clip>
+                            <EllipseGeometry Center="32 32" RadiusX="32" RadiusY="32" />
+                        </Image.Clip>
+                    </Image>
+                    <TextBlock Text="立青" Margin="10,0,0,0" VerticalAlignment="Center"
+                               Foreground="White" />
+                </StackPanel>
+                <!--#endregion-->
+
+                <!--#region 功能列表-->
+                <StackPanel Grid.Column="2" Margin="0,0,80,0"
+                            HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="系统购买" Style="{StaticResource MeunButtonStyle}" />
+                    <Button Content="帮助中心" Style="{StaticResource MeunButtonStyle}" />
+                    <Button Content="商品问题" Style="{StaticResource MeunButtonStyle}" />
+                    <Button Content="关于我们" Style="{StaticResource MeunButtonStyle}" />
+                    <Button Content="意见反馈" Style="{StaticResource MeunButtonStyle}" />
+                    <Button Content="退出系统" Style="{StaticResource MeunButtonStyle}" />
+                </StackPanel>
+                <!--#endregion-->
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region 导航栏-->
+        <StackPanel Width="250" Background="#fefefe" DockPanel.Dock="Left"
+                    Effect="{StaticResource Effect}">
+            <Border Height="70">
+                <TextBlock Text="导航" Margin="66,0,0,0" VerticalAlignment="Center" />
+            </Border>
+            <ListBox BorderThickness="0">
+                <ListBoxItem Content="系统首页" IsSelected="True"
+                             Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+                <ListBoxItem Content="系统首页" Style="{StaticResource NavigationItemStyle}" />
+            </ListBox>
+        </StackPanel>
+        <!--#endregion-->
+
+        <WrapPanel Margin="50,50,50,0">
+            <!--#region 各种积分-->
+            <Border Width="280" Height="180" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <WrapPanel>
+                    <TextBlock Text="现金积分" Width="220" FontSize="14" Foreground="#999999" />
+                    <TextBlock Text="1,563" Width="180" Margin="0,30,0,10"
+                               FontFamily="Arial Rounded MT Bold" FontSize="30"
+                               Foreground="#7670d9" />
+                    <TextBlock Text="昨日+8%" Width="40" Margin="0,30,0,0" FontSize="12"
+                               Foreground="#999999" TextWrapping="WrapWithOverflow" />
+                    <ProgressBar Width="220" Height="28" VerticalAlignment="Bottom"
+                                 Background="#F7F7F7" BorderThickness="0"
+                                 Foreground="#7670D9" Value="22" />
+                </WrapPanel>
+            </Border>
+            <Border Width="280" Height="180" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <WrapPanel>
+                    <TextBlock Text="商城积分" Width="220" FontSize="14" Foreground="#999999" />
+                    <TextBlock Text="2,563" Width="180" Margin="0,30,0,10"
+                               FontFamily="Arial Rounded MT Bold" FontSize="30"
+                               Foreground="#4c9ecd" />
+                    <TextBlock Text="昨日+8%" Width="40" Margin="0,30,0,0" FontSize="12"
+                               Foreground="#999999" TextWrapping="WrapWithOverflow" />
+                    <ProgressBar Width="220" Height="28" VerticalAlignment="Bottom"
+                                 Background="#F7F7F7" BorderThickness="0"
+                                 Foreground="#4c9ecd" Value="22" />
+                </WrapPanel>
+            </Border>
+            <Border Width="280" Height="180" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <WrapPanel>
+                    <TextBlock Text="理财积分" Width="220" FontSize="14" Foreground="#999999" />
+                    <TextBlock Text="3,563" Width="180" Margin="0,30,0,10"
+                               FontFamily="Arial Rounded MT Bold" FontSize="30"
+                               Foreground="#d970d0" />
+                    <TextBlock Text="昨日+8%" Width="40" Margin="0,30,0,0" FontSize="12"
+                               Foreground="#999999" TextWrapping="WrapWithOverflow" />
+                    <ProgressBar Width="220" Height="28" VerticalAlignment="Bottom"
+                                 Background="#F7F7F7" BorderThickness="0"
+                                 Foreground="#d970d0" Value="22" />
+                </WrapPanel>
+            </Border>
+            <Border Width="280" Height="180" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <WrapPanel>
+                    <TextBlock Text="现金积分" Width="220" FontSize="14" Foreground="#999999" />
+                    <TextBlock Text="4,563" Width="180" Margin="0,30,0,10"
+                               FontFamily="Arial Rounded MT Bold" FontSize="30"
+                               Foreground="#5ac4b6" />
+                    <TextBlock Text="昨日+8%" Width="40" Margin="0,30,0,0" FontSize="12"
+                               Foreground="#999999" TextWrapping="WrapWithOverflow" />
+                    <ProgressBar Width="220" Height="28" VerticalAlignment="Bottom"
+                                 Background="#F7F7F7" BorderThickness="0"
+                                 Foreground="#5ac4b6" Value="22" />
+                </WrapPanel>
+            </Border>
+            <Border Width="280" Height="180" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <WrapPanel>
+                    <TextBlock Text="激活码" Width="220" FontSize="14" Foreground="#999999" />
+                    <TextBlock Text="5,563" Width="180" Margin="0,30,0,10"
+                               FontFamily="Arial Rounded MT Bold" FontSize="30"
+                               Foreground="#d9707f" />
+                    <TextBlock Text="昨日+8%" Width="40" Margin="0,30,0,0" FontSize="12"
+                               Foreground="#999999" TextWrapping="WrapWithOverflow" />
+                    <ProgressBar Width="220" Height="28" VerticalAlignment="Bottom"
+                                 Background="#F7F7F7" BorderThickness="0"
+                                 Foreground="#d9707f" Value="22" />
+                </WrapPanel>
+            </Border>
+            <!--#endregion-->
+            <Border Width="900" Height="360" Margin="15" Padding="30"
+                    Background="White"
+                    Effect="{StaticResource Effect}">
+                <StackPanel>
+                    <TextBlock Text="收益数据" Foreground="#666666" />
+                    <Image Margin="0,20,0,0" Source="Images/chart.png" />
+                </StackPanel>
+            </Border>
+        </WrapPanel>
+    </DockPanel>
+</Window>
